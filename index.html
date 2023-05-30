@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Encriptador de Texto</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <enlace rel="preconectar" href="https://fonts.googleapis.com">
+  <enlace rel="preconectar" href="https://fonts.gstatic.com" crossorigin>
+  <enlace href="https: //fonts.googleapis.com/css2? family= Montserrat:wght@300 & display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <h1>Encriptador de Texto</h1>
+
+    <div class="entradaTexto">
+
+        <label for="texto"></label>
+        <textarea class="caja" id="texto" rows="28" cols="110" required placeholder="Ingrese una palabra para encriptar o desencriptar."></textarea>
+
+        <label for="resultado"></label>
+        <textarea class="resultadoDerecha" id="resultado" rows="30" cols="50" readonly></textarea>
+
+          <div class="container">
+              <button class="button1" onclick="encriptarTexto()">Encriptar</button>
+              <button class="button2" onclick="desencriptarTexto()">Desencriptar</button>
+            <button class="copiarTexto" onclick="copiarTexto()">Copiar</button>
+          </div>
+    </div>
+</body>
+</html>
+
+  <script>function encriptarTexto() {
+    var textoInput = document.getElementById("texto");
+    var resultadoInput = document.getElementById("resultado");
+  
+    var texto = textoInput.value.toLowerCase();
+    var resultado = texto.replace(/e/g, "enter")
+                        .replace(/i/g, "imes")
+                        .replace(/a/g, "ai")
+                        .replace(/o/g, "ober")
+                        .replace(/u/g, "ufat");
+  
+    resultadoInput.value = resultado;
+  }
+  
+  function desencriptarTexto() {
+
+    var textoInput = document.getElementById("texto");
+    var resultadoInput = document.getElementById("resultado");
+  
+    var texto = textoInput.value.toLowerCase();
+    var resultado = texto.replace(/ufat/g, "u")
+                        .replace(/ober/g, "o")
+                        .replace(/ai/g, "a")
+                        .replace(/imes/g, "i")
+                        .replace(/enter/g, "e");
+  
+    resultadoInput.value = resultado;
+
+  }
+  
+  function copiarTexto() {
+    var resultadoInput = document.getElementById("resultado");
+    resultadoInput.select();
+    resultadoInput.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+  }
+
+  </script>
+
+  <p class="copyright">&copy Copyright Ronaldo pinto - 2023</p>
+
+</body>
+</html>
